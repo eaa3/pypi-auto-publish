@@ -44,12 +44,13 @@ runs:
     - if: inputs.git-ref != 'skip'
       uses: actions/checkout@v3
       with:
+        lfs: true
         ref: ${{ inputs.git-ref }}
 
     # Setup Python
     - uses: actions/setup-python@v4
       with:
-        python-version: "3.11"
+        python-version: "3.10"
   
     - run: pip install -e .
       shell: bash
